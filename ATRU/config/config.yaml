@@ -1,0 +1,64 @@
+# fault_diagnosis_project/config/config.yaml
+
+# --- Paths and Directories ---
+# "paths" 必须是顶级键，不能有任何缩进
+paths:
+  # Use forward slashes for better cross-platform compatibility
+  data_root: "C:/Users/aaa/Desktop/ATRU-3_data/noise_data"
+  output_dir: "outputs"
+  model_dir: "outputs/models"
+  log_dir: "outputs/logs"
+  figure_dir: "outputs/figures"
+  results_dir: "outputs/results"
+
+# --- Data Parameters ---
+data:
+  noise_level: "no_db" # e.g., "no_db", "3_db", "-3_db"
+  num_classes: 15
+  signal_length: 1024
+  num_workers: 0 # Recommended to set to 0 on Windows
+
+# --- Training Parameters ---
+training:
+  batch_size: 64
+  epochs: 200
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  gradient_clip_norm: 1.0
+  label_smoothing: 0.1
+
+# --- Testing Parameters ---
+testing:
+  batch_size: 64
+
+# --- Scheduler Parameters ---
+scheduler:
+  patience: 5
+  factor: 0.5
+
+# --- Model Hyperparameters ---
+model:
+  # Initial Convolutional Stem
+  initial_conv_out_channels: 64
+  initial_conv_kernel_size: 7
+  initial_conv_stride: 2
+  initial_pool_size: 2
+
+  # Residual Blocks Channel Progression
+  residual_channels: [64, 128, 256]
+
+  # Transformer Block
+  d_model: 256 # Must match the last channel size in residual_channels
+  n_head: 8
+  dim_feedforward: 512
+  transformer_layers: 2
+  dropout: 0.1
+
+  # Classifier Heads
+  classifier_hidden_dims: [512, 256]
+  classifier_dropout_rates: [0.3, 0.2]
+  aux_head_weight: 0.2
+
+# --- System ---
+system:
+  device: "auto" # "auto", "cuda", "cpu"
