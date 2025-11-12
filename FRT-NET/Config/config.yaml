@@ -1,0 +1,41 @@
+# 1. Paths and Environment
+
+data_root: "../ATRU-2_data/noise_data"
+#
+noise_condition: "no_db"
+device: "cuda:0" # "cuda:0" or "cpu"
+# Output dir relative to the project root.
+output_dir: "outputs/"
+
+# 2. Data Processing
+signal_length: 1024
+num_workers: 0
+
+# 3. Training Parameters
+batch_size: 64
+test_batch_size: 64
+epochs: 200
+learning_rate: 0.0001
+weight_decay: 0.0001
+label_smoothing: 0.1
+grad_clip_norm: 1.0
+
+# 4. Model Architecture
+num_classes: 15
+embed_dim: 256
+ffn_dim: 512
+num_heads: 8
+num_transformer_layers: 2
+transformer_k: 32
+# Dropout rates
+dropout: 0.1
+classifier_dropout_1: 0.3
+classifier_dropout_2: 0.2
+aux_dropout: 0.1
+aux_loss_weight: 0.3 # Weight for the auxiliary classifier loss
+
+# 5. Evaluation and Logging
+best_model_name: "best_model.pth"
+report_name: "classification_report.csv"
+confusion_matrix_name: "confusion_matrix.png"
+training_curves_name: "training_curves.png"
