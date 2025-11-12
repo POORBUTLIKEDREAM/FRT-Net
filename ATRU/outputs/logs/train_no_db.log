@@ -1,4 +1,0 @@
-2025-08-25 23:26:42,938 [INFO] - Logger initialized. Log file at: outputs/logs\train_no_db.log
-2025-08-25 23:26:42,986 [INFO] - Using device: cuda
-2025-08-25 23:26:43,796 [INFO] - Initialized train dataset with 21428 samples.
-2025-08-25 23:26:43,984 [INFO] - Initialized test dataset with 7144 samples.
