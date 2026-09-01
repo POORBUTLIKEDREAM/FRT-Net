@@ -1,0 +1,4 @@
+numpy>=1.24
+langgraph>=0.2
+PyYAML>=6.0
+# PyTorch is already required by FRT-Net. Install a build matching your CUDA/CPU environment.
