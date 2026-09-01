@@ -1,3 +1,5 @@
+FRT-Net: Frequency-aware Lightweight Transformer for Aircraft Power System Fault Diagnosis
+
 FRT-Net
 │
 ├── README.md
